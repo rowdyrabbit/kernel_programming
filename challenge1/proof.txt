@@ -1,20 +1,21 @@
-root@rowdyrabbit:~# make all
-make -C /lib/modules/3.13.0-37-generic/build M=/root modules
-make[1]: Entering directory `/usr/src/linux-headers-3.13.0-37-generic'
-  CC [M]  /root/challenge1.o
+make -C /lib/modules/3.2.0-23-generic/build M=/home/vagrant/dev_repos/eudyptula/ch01 modules
+make[1]: Entering directory `/usr/src/linux-headers-3.2.0-23-generic'
+Building with KERNELRELEASE = 3.2.0-23-generic
+  CC [M]  /home/vagrant/dev_repos/eudyptula/ch01/challenge1.o
   Building modules, stage 2.
+Building with KERNELRELEASE = 3.2.0-23-generic
   MODPOST 1 modules
-  CC      /root/challenge1.mod.o
-  LD [M]  /root/challenge1.ko
-make[1]: Leaving directory `/usr/src/linux-headers-3.13.0-37-generic'
-root@rowdyrabbit:~# dmesg |tail
-[105363.504246] Disabling lock debugging due to kernel taint
-[105363.504278] hello_1: module verification failed: signature and/or  required key missing - tainting kernel
-[105363.504718] Hello world 1.
-[105480.673306] Goodbye world 1.
-[105483.257839] Hello world 1.
-[105500.688395] Goodbye world 1.
-[105507.794078] Hello world 1.
-[577043.337029] UDP: bad checksum. From 198.20.69.98:28540 to 128.199.120.37:1434 ulen 9
-[701652.998318] Goodbye world 1.
-[701664.792440] Hello World!
+  CC      /home/vagrant/dev_repos/eudyptula/ch01/challenge1.mod.o
+  LD [M]  /home/vagrant/dev_repos/eudyptula/ch01/challenge1.ko
+make[1]: Leaving directory `/usr/src/linux-headers-3.2.0-23-generic'
+vagrant@linux-kernel-dev:~/dev_repos/eudyptula/ch01$ dmesg | tail
+[    5.352290] mtrr: your processor doesn't support write-combining
+[    5.352419] vesafb: framebuffer at 0xe0000000, mapped to 0xffffc90003e00000, using 1216k, total 1216k
+[    5.353225] Console: switching to colour frame buffer device 80x30
+[    5.354515] fb0: VESA VGA frame buffer device
+[    5.397890] vboxsf: Successfully loaded version 4.3.14 (interface 0x00010004)
+[   12.947010] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   12.949133] e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[   12.949730] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   23.001103] eth0: no IPv6 routers present
+[ 1437.273184] Hello World!
